@@ -15,14 +15,14 @@ CLONE_PATH = pathlib.Path("repos/")
 
 def process_slides(input: pathlib.Path):
     output = OUTPUT_PATH / input.with_suffix(".html")
-    ret = subprocess.getoutput(REVEAL_JS + f" {input} -o {output}", encoding="utf8")
+    ret = subprocess.getoutput(REVEAL_JS + f" {input} -o {output}" )
     print(ret)
 
 def process_lab(input: pathlib.Path):
     if (input.parts.count("src") > 0):
         return
     output = OUTPUT_PATH / input.with_suffix(".html")
-    ret = subprocess.getoutput(HTML5 + f" {input} -o {output}", encoding="utf8")
+    ret = subprocess.getoutput(HTML5 + f" {input} -o {output}")
     print(ret)
 
 def copy_images(index_file: pathlib.Path):
